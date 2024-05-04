@@ -1,0 +1,52 @@
+{
+    "addresses": [
+        "tb1pqau473r79t69hfydydd5q3us93njszk4ejew6mwpyvlym8d2n4zs8ekfe8"
+    ],
+    "block_height": -1,
+    "block_index": -1,
+    "confirmations": 0,
+    "double_spend": false,
+    "fees": 0,
+    "hash": "f41fa378bae4ea31c014bc86fe818f8ab52a5c34985df1410fd9e8b8afb01bde",
+    "inputs": [
+        {
+            "age": 0,
+            "output_index": 0,
+            "prev_hash": "deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "script_type": "empty",
+            "sequence": 4294967295
+        },
+        {
+            "age": 0,
+            "output_index": 0,
+            "prev_hash": "cafebabecafebabecafebabecafebabecafebabecafebabecafebabecafebabe",
+            "script_type": "empty",
+            "sequence": 4294967295
+        }
+    ],
+    "outputs": [
+        {
+            "addresses": null,
+            "script": "51",
+            "script_type": "unknown",
+            "value": 331
+        },
+        {
+            "addresses": [
+                "tb1pqau473r79t69hfydydd5q3us93njszk4ejew6mwpyvlym8d2n4zs8ekfe8"
+            ],
+            "script": "512007795f447e2af45ba48d235b4047902c67280ad5ccb2ed6dc1233e4d9daa9d45",
+            "script_type": "pay-to-taproot",
+            "value": 331
+        }
+    ],
+    "preference": "low",
+    "received": "2024-05-04T19:08:57.885081697Z",
+    "relayed_by": "18.206.81.144",
+    "size": 279,
+    "total": 662,
+    "ver": 2,
+    "vin_sz": 2,
+    "vout_sz": 2,
+    "vsize": 179
+}
