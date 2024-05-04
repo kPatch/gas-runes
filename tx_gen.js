@@ -21,3 +21,9 @@ p.addInput({hash:txId2,index:0})
 p.addOutput({amount:331,script:btc.script.fromASM("OP_TRUE")})
 p.addOutput({amount:1000000000000,script:btc.address.toOutputScript(recipient_address)})
 
+let first_txID=''
+let funding_txID=''
+let p2= new btc.Psbt();
+p2.addInput({hash:first_txID,index:0})
+p2.addInput({hash:funding_txID,index:0})
+p2.addOutput({amount:331,script:btc.address.toOutputScript(pubkey)})
