@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTC "Gas" Relayer</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+/* styles.css */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        table th, table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        /* Optional: Add styles for alternating row colors */
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Optional: Add styles for the header */
+        thead {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Optional: Add styles for links */
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight-row {
+            background-color: #ffe6e6 !important;
+            /* background-color: #dd6d6d !important;  */
+            /* Set background color for highlighted rows */
+            /* You can customize other styles for highlighted rows here */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <h1>Dynamic Table Example</h1> -->
+        <h1 class="text-center">TX Relayer Marketplace (TRM)</h1>
+
+        
+        <!-- Top Table -->
+        <table id="top-table" class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>TxID</th>
+                    <th>Fee Rate</th>
+                    <th>Total Fee</th>
+                    <th>VSize</th>
+                    <th>Value</th>
+                    <!-- Add more table headers if needed -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be dynamically populated by JavaScript -->
+            </tbody>
+        </table>
+
+        <!-- Button to populate top table -->
+        <button id="populate-button" class="btn btn-primary">Refresh Latest TXs</button>
+        
+        
+        <table id="data-table" class="table table-bordered table-striped">
+        <!-- <table class="table table-bordered table-striped"> -->
+            <!-- <thead> -->
+            <thead class="thead-dark">
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Price (Sats)</th>
+                    <th>Supply</th>
+                    <th>Dust Amount </th>
+                    <!-- Add more table headers if needed -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be dynamically populated by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- <script src="script.js"></script> -->
+
+    <script>
+
+        function populateTopTable(data) {
+            const tableBody = document.querySelector('#top-table tbody');
+            tableBody.innerHTML = ''; // Clear existing rows
+
+            // const highlightThreshold = 5000; // Set the threshold value for mainnet
+            const highlightThreshold = 35; // Set the threshold value for testnet
+
+            data.forEach(item => {
+                const feeRate = item.fee / item.vsize;
+                const rowClass = feeRate < highlightThreshold ? 'highlight-row' : ''; // Check if id is lower than threshold
+                const row = `<tr class="${rowClass}">
+                                <td>${item.txid}</td>
+                                <td>${feeRate}</td>
+                                <td>${item.fee}</td>
+                                <td>${item.vsize}</td>
+                                <td>${item.value}</td>
+                                <!-- Add more table data cells if needed -->
+                            </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        // Function to handle button click event
+        document.getElementById('populate-button').addEventListener('click', function() {
+            axios.get('/latestTxs')
+                .then(response => {
+                    populateTopTable(response.data);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        });
+
+        // Function to populate the top table on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            axios.get('/latestTxs')
+                .then(response => {
+                    populateTopTable(response.data);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        });
+
+
+
+        function fetchData() {
+            const endpoint = '/runesMarket'
+            axios.get(endpoint)
+                .then(response => {
+                    populateTable(response.data);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
+    
+        function populateTable(data) {
+            const tableBody = document.querySelector('#data-table tbody');
+            // const tableBody = document.querySelector('.table tbody');
+            tableBody.innerHTML = ''; // Clear existing rows
+    
+            data.forEach(item => {
+                const row = `<tr>
+                                <td>${item.symbol}</td>
+                                <td>${item.metadata.currencyName}</td>
+                                <td>${item.metadata.snapshotPrice}</td>
+                                <td>${item.metadata.supply}</td>
+                                <td>${item.metadata.dustAmount}</td>
+                                <!-- Add more table data cells if needed -->
+                            </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+    
+        // Fetch data initially
+        fetchData();
+    
+        // Refresh data every 15 seconds
+        // setInterval(fetchData, 60000);
+        setInterval(fetchData, 120000);
+    
+    </script>
+</body>
+</html>
