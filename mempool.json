@@ -1,0 +1,62 @@
+[
+    {
+      "txid": "11463a757e95ba3d54646900e536aa74fde4753d27d974c451a127bb6e04db8c",
+      "fe": 3527,
+      "vsize": 221,
+      "value": 9423973
+    },
+    {
+      "txid": "7125002237c0334edbc6d7465b161d8f11b8e5d548893cf5877f4170a58518d0",
+      "fee": 10982,
+      "vsize": 369,
+      "value": 12396899
+    },
+    {
+        "txid": "f3dad146d217e6b0af69c5508f1019012100f621386b2f79dd604b3d7564b90c",
+        "fee": 4890,
+        "vsize": 140,
+        "value": 1920090
+    },
+    {
+        "txid": "f6f492222bc5ca4ae095ca0bd4a8267e7a89d7360ace8b2c95bb5be43ba056e3",
+        "fee": 14946,
+        "vsize": 464,
+        "value": 15492
+    },
+    {
+        "txid": "4d149d1356ef081f6bec872227266c8baa854aed9758baee9841a8d08ae28546",
+        "fee": 3059,
+        "vsize": 112,
+        "value": 610404
+    },
+    {
+        "txid": "7c2eee6d6cd0016156d414a4fd65abc3ab1f6f9d9d8014b67606bbfa8c1cb237",
+        "fee": 24433,
+        "vsize": 616,
+        "value": 1292979614
+    },
+    {
+        "txid": "802b7fec23e0dd911c47fa5e1e79e53810223f0dbfd81bc226741a9522175487",
+        "fee": 18054,
+        "vsize": 318,
+        "value": 4567361
+    },
+    {
+        "txid": "c03d6b07a4160f3109992e18b26e66d994ee5433b3dad81b27efa08cb1a2cee3",
+        "fee": 531,
+        "vsize": 176,
+        "value": 6023309
+    },
+    {
+        "txid": "318a440a57568ace0a81bab2aa29803a65d987a24ddcb7afab6ca6e096a91ab8",
+        "fee": 25310,
+        "vsize": 178,
+        "value": 105376
+    },
+    {
+        "txid": "973849d1b24db04f66925873d4ada2d58f67c778f13327bd719ce2f6345f282f",
+        "fee": 26025,
+        "vsize": 217,
+        "value": 816385
+    }
+  ]
