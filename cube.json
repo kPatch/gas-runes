@@ -1,0 +1,42 @@
+[
+    {
+        "assetId": 54,
+        "symbol": "SATOSHI•NAKAMOTO",
+        "decimals": 8,
+        "displayDecimals": 2,
+        "settles": true,
+        "assetType": "Crypto",
+        "sourceId": 1,
+        "metadata": {
+            "currencyName": "SATOSHI NAKAMOTO",
+            "dustAmount": 1000000000,
+            "isRunes": true,
+            "marketCapRank": null,
+            "runeId": "840000:22",
+            "snapshotPrice": 6.0,
+            "supply": 21000000.0,
+            "totalSupply": 21000000.0
+        },
+        "status": 1
+    },
+    {
+        "assetId": 55,
+        "symbol": "MEME•ECONOMICS",
+        "decimals": 0,
+        "displayDecimals": 0,
+        "settles": true,
+        "assetType": "Crypto",
+        "sourceId": 1,
+        "metadata": {
+            "currencyName": "MEME ECONOMICS",
+            "dustAmount": 1000,
+            "isRunes": true,
+            "marketCapRank": null,
+            "runeId": "840000:25",
+            "snapshotPrice": 0.6,
+            "supply": 21000000,
+            "totalSupply": 21000000
+        },
+        "status": 1
+    }
+]
