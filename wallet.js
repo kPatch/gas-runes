@@ -18,12 +18,13 @@ const hdKey = bip32.fromSeed(seed, btc.networks.testnet)
 
 const ordAccount = hdKey.derivePath("m/86'/0'/0'")
 const feeAccount = hdKey.derivePath("m/86'/0'/1'")
-
-console.log(btc.payments.p2tr({
-    network: btc.networks.testnet,
-    internalPubkey: ordAccount.derivePath('0/0').publicKey.slice(1),
-}).address)
-console.log(btc.payments.p2tr({
-    network: btc.networks.testnet,
-    internalPubkey: feeAccount.derivePath('0/0').publicKey.slice(1),
-}).address)
+for (const {wallet, name} of [{wallet: ordAccount, name: 'ord'}, {wallet: feeAccount, name: 'fee'}]) {
+    console.log(`${name} wallet`)
+    for (const i of [0, 1, 2]) {
+        console.log(`m/86'/0'/0'/0/${i}`)
+        console.log(btc.payments.p2tr({
+            network: btc.networks.testnet,
+            internalPubkey: ordAccount.derivePath(`0/${i}`).publicKey.slice(1),
+        }).address)
+    }
+}
