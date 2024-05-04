@@ -1,0 +1,46 @@
+{
+    "addresses": [
+        "tb1plnek84ms94hgey0kkweqwutn34f2wprkn8cu864w8a947hcjnktqlmhc2e"
+    ],
+    "block_height": -1,
+    "block_index": -1,
+    "confirmations": 0,
+    "double_spend": false,
+    "fees": 0,
+    "hash": "f77b6fbc9b95d40f58fac1ecb43dfd17f34357d26abfa54a283ad4dc98f62b66",
+    "inputs": [
+        {
+            "age": 0,
+            "output_index": 0,
+            "prev_hash": "f41fa378bae4ea31c014bc86fe818f8ab52a5c34985df1410fd9e8b8afb01bde",
+            "script_type": "empty",
+            "sequence": 4294967295
+        },
+        {
+            "age": 0,
+            "output_index": 0,
+            "prev_hash": "fadefeedfadefeedfadefeedfadefeedfadefeedfadefeedfadefeedfadefeed",
+            "script_type": "empty",
+            "sequence": 4294967295
+        }
+    ],
+    "outputs": [
+        {
+            "addresses": [
+                "tb1plnek84ms94hgey0kkweqwutn34f2wprkn8cu864w8a947hcjnktqlmhc2e"
+            ],
+            "script": "5120fcf363d7702d6e8c91f6b3b20771738d52a7047699f1c3eaae3f4b5f5f129d96",
+            "script_type": "pay-to-taproot",
+            "value": 331
+        }
+    ],
+    "preference": "low",
+    "received": "2024-05-04T19:10:09.208853512Z",
+    "relayed_by": "44.211.90.227",
+    "size": 204,
+    "total": 331,
+    "ver": 2,
+    "vin_sz": 2,
+    "vout_sz": 1,
+    "vsize": 153
+}

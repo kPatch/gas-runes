@@ -95,6 +95,7 @@ p.signInput(1, ordAccount.derivePath('0/0'))
 p.finalizeAllInputs()
 const tx1 = p.extractTransaction()
 console.log(`tx1 size: ${tx1.virtualSize()}`)
+console.log(tx1.toHex())
 
 const cpfpInput = {
     hash: 'fadefeedfadefeedfadefeedfadefeedfadefeedfadefeedfadefeedfadefeed',
@@ -134,3 +135,4 @@ p2.finalizeInput(1)
 const tx2 = p2.extractTransaction()
 
 console.log(`tx2 size: ${tx2.virtualSize()}`)
+console.log(tx2.toHex())
