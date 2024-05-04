@@ -18,7 +18,12 @@ const hdKey = bip32.fromSeed(seed, btc.networks.testnet)
 
 const ordAccount = hdKey.derivePath("m/86'/0'/0'")
 const feeAccount = hdKey.derivePath("m/86'/0'/1'")
-for (const {wallet, name} of [{wallet: ordAccount, name: 'ord'}, {wallet: feeAccount, name: 'fee'}]) {
+const cpfpAccount = hdKey.derivePath("m/86'/0'/2'")
+for (const {wallet, name} of [
+    {wallet: ordAccount, name: 'ord'},
+    {wallet: feeAccount, name: 'fee'},
+    {wallet: cpfpAccount, name: 'cpfp'},
+]) {
     console.log(`${name} wallet`)
     for (const i of [0, 1, 2]) {
         console.log(`m/86'/0'/0'/0/${i}`)
